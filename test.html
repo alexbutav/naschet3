@@ -1,0 +1,46 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8"/>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<script
+			src="http://code.jquery.com/jquery-3.3.1.min.js"
+			integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+			crossorigin="anonymous"></script>
+		<script type="text/javascript" src="circ_sel.js"></script>
+		<title>Title</title>
+		<style type="text/css">
+			/* helpers css*/
+		.no-selectable{ -webkit-user-select: none; /* Safari 3.1+ */ -moz-user-select: none; /* Firefox 2+ */ -ms-user-select: none; /* IE 10+ */ user-select: none; /* Standard syntax */ }
+
+
+			body, html{ margin: 0; padding: 0; }
+			html{ height: 100%; }
+			body{ height: 100%; min-height: 100%; }
+			/* 
+				#001f3f - navy
+				#FF851B - oragne
+			*/
+			body{ background: #001f3f; font-family: Arial; color: white; }
+			.select-cirlce, .select-circle * { -webkit-tap-highlight-color: transparent; }
+			.select-circle{ width: 276px; height: 276px; border: 2px solid white; border-radius: 50%; position: relative; box-sizing: border-box; }
+			.select-circle .value{ position: absolute; width: 34px; height: 34px; border-radius: 50%; background: #FF851B; display: flex; align-items: center; justify-content: center; box-sizing: border-box; font-size: 0.9em; font-weight: bold; cursor: pointer; }
+			.select-circle .value.selected{ border: 2px solid white; }
+			.centered{ display: flex; flex-flow: row; flex-wrap: nowrap; align-items: center; justify-content: center; }
+			.button{ background: #FF851B; display: inline-block; padding: 10px; border-radius: 20px; min-width: 90px; text-align: center; font-size: 1.1rem; transition: all 0.3s; cursor: pointer; box-shadow: 0 3px 0 0 #BF6414; }
+			.button:active{ box-shadow: 0 0 2px 0 #BF6414; margin-top: 4px; }
+
+			#buffer{ display: none; }
+		</style>
+	</head>
+	<body>
+		<div id="test" class="centered" style="height: 100%;"></div>
+		<div id="buffer"></div>
+		<script type="text/javascript">
+
+			var circle = new CircleSelect({min: 2, max: 20});
+			$("#test").append(circle.element);
+			circle.element.fadeIn();
+		</script>
+	</body>
+</html>
